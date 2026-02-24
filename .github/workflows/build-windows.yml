@@ -33,7 +33,9 @@ jobs:
 
       - name: Generate Icons
         working-directory: ./lonewolf-tauri
+        shell: bash
         run: |
+          mkdir -p src-tauri/icons
           node bin/svg2png.mjs -b "#ffffff00" src/assets/icon.svg --width 512 --height 512 --output src-tauri/icons/512x512-lonewolf.png
           npm run tauri icon -- src-tauri/icons/512x512-lonewolf.png -o src-tauri/icons
 
