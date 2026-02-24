@@ -39,6 +39,10 @@ jobs:
           node bin/svg2png.mjs -b "#ffffff00" src/assets/icon.svg --width 512 --height 512 --output src-tauri/icons/512x512-lonewolf.png
           npm run tauri icon -- src-tauri/icons/512x512-lonewolf.png -o src-tauri/icons
 
+      - name: Generate Frontend Icons
+        working-directory: ./lonewolf/assets
+        run: node icons.script.mjs generate
+
       - name: Build Tauri App
         working-directory: ./lonewolf-tauri
         run: npm run tauri build
